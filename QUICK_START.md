@@ -1,48 +1,39 @@
 # Quick Start Guide
 
-## Immediate Next Steps
+Get the app running in 5 minutes!
 
-### 1. Create Xcode Project (5 minutes)
+## Step 1: Clone the Repository
 
 ```bash
-# Open Xcode and create a new project:
-# - File > New > Project
-# - Choose "iOS App"
-# - Product Name: OCRApp
-# - Interface: SwiftUI
-# - Language: Swift
-# - Save in: /Users/conmeara/code/ocr-app/
+git clone https://github.com/conmeara/ocr-app.git
+cd ocr-app
 ```
 
-**Important**: When Xcode creates the project, it will create a new `OCRApp` folder. You'll need to replace the auto-generated files with the files from this directory.
+## Step 2: Open in Xcode
 
-### 2. Add Files to Xcode Project
+```bash
+open ocr-app.xcodeproj
+```
 
-1. In Xcode, delete the auto-generated `ContentView.swift` and `OCRApp.swift`
-2. Drag the following folders from Finder into your Xcode project:
-   - `Models/`
-   - `Services/`
-   - `ViewModels/`
-   - `Views/`
-   - `OCRApp.swift`
-3. When prompted, select:
-   - ✅ Copy items if needed
-   - ✅ Create groups
-   - ✅ Add to target: OCRApp
+Or **double-click** `ocr-app.xcodeproj` in Finder.
 
-### 3. Configure Info.plist
+## Step 3: Add Privacy Permissions
 
-1. In Xcode, locate the auto-generated `Info.plist`
-2. Replace it with the `Info.plist` from this directory
-3. Or manually add these keys:
-   - `NSCameraUsageDescription`
-   - `NSPhotoLibraryUsageDescription`
-   - `UISupportsDocumentBrowser`
-   - `LSSupportsOpeningDocumentsInPlace`
+In Xcode:
+1. Select the project in the navigator
+2. Select the "ocr-app" target
+3. Go to the **Info** tab
+4. Click **+** under "Custom iOS Target Properties"
+5. Add these two keys:
 
-### 4. Add Your Nanonets API Key
+| Key | Value |
+|-----|-------|
+| Privacy - Camera Usage Description | `We need access to your camera to capture photos of your handwritten notes and journals for OCR processing.` |
+| Privacy - Photo Library Usage Description | `We need access to your photo library to select images for OCR processing.` |
 
-Open `Services/NanonetsService.swift` and add your API key:
+## Step 4: Add Your Nanonets API Key
+
+Open `ocr-app/Services/NanonetsService.swift` and add your API key:
 
 ```swift
 private let apiKey: String = "YOUR_NANONETS_API_KEY"
@@ -51,38 +42,28 @@ private let ocrEndpoint = "https://app.nanonets.com/api/v2/OCR/Model/YOUR_MODEL_
 
 Get your API key from: https://nanonets.com
 
-### 5. Build and Run
+## Step 5: Build and Run
 
 1. Select a simulator or device (iOS 17+)
-2. Press ⌘R to build and run
+2. Press **⌘R** to build and run
 3. Grant camera and photo permissions when prompted
+4. Start scanning! 📸
 
-## File Organization
-
-All Swift files are organized in a clean architecture:
+## Project Structure
 
 ```
-OCRApp/
-├── OCRApp.swift              ← Main app entry point
-├── Models/                   ← Data models
-│   ├── Constants.swift
-│   ├── CapturedPhoto.swift
-│   ├── OCRPage.swift
-│   └── ExportFormat.swift
-├── Services/                 ← Business logic
-│   ├── NanonetsService.swift
-│   ├── FileService.swift
-│   └── ClipboardService.swift
-├── ViewModels/              ← State management
-│   └── OCRViewModel.swift
-└── Views/                   ← UI components
-    ├── CaptureView.swift
-    ├── PhotoGridView.swift
-    ├── ProcessingView.swift
-    ├── EditReviewView.swift
-    ├── ResultsView.swift
-    └── Components/
-        └── PageCardView.swift
+ocr-app/
+├── ocr-app.xcodeproj/       ← Double-click to open
+├── ocr-app/                 ← Source code
+│   ├── Models/
+│   ├── Services/            ← Add API key here
+│   ├── ViewModels/
+│   ├── Views/
+│   └── OCRApp.swift
+├── samples/                 ← Liquid Glass UI reference
+├── README.md
+├── QUICK_START.md          ← You are here!
+└── PROJECT_SUMMARY.md
 ```
 
 ## Testing Without API Key

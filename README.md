@@ -44,7 +44,7 @@ cd ocr-app
 
 1. Sign up for a Nanonets account at [https://nanonets.com](https://nanonets.com)
 2. Get your API key from the dashboard
-3. Open `OCRApp/ocr-app/Services/NanonetsService.swift`
+3. Open `ocr-app/Services/NanonetsService.swift`
 4. Add your API key:
 
 ```swift
@@ -59,19 +59,22 @@ private let ocrEndpoint = "https://app.nanonets.com/api/v2/OCR/Model/YOUR_MODEL_
 
 ### 3. Open in Xcode
 
-1. **Double-click** on `OCRApp/ocr-app.xcodeproj` to open the project in Xcode
+1. **Double-click** on `ocr-app.xcodeproj` to open the project in Xcode
 
-2. The project structure will look like:
+2. The project structure:
    ```
-   OCRApp/
-   ├── ocr-app.xcodeproj/        # Xcode project
-   └── ocr-app/                  # Source code
-       ├── Models/
-       ├── Services/
-       ├── ViewModels/
-       ├── Views/
-       ├── Assets.xcassets/
-       └── OCRApp.swift
+   ocr-app/
+   ├── ocr-app.xcodeproj/        # Xcode project file ← Open this
+   ├── ocr-app/                  # Source code
+   │   ├── Models/
+   │   ├── Services/
+   │   ├── ViewModels/
+   │   ├── Views/
+   │   ├── Assets.xcassets/
+   │   └── OCRApp.swift
+   ├── samples/                  # Liquid Glass reference
+   ├── README.md
+   └── ...
    ```
 
 ### 4. Add Privacy Permissions
